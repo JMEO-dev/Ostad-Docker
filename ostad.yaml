@@ -45,6 +45,9 @@ services:
       MONGO_URI: mongodb://ostad:ostad@mongo:27017/ostad
       MONGO_USERNAME: ostad
       MONGO_PASSWORD: ostad
+    volumes:
+      - ./OstadServer:/ostad-server
+      - /ostad-server/node_modules 
 
   ostad-ui:
     build:
@@ -59,6 +62,10 @@ services:
       - mongo
       - mongo-express
       - ostad-server
+    volumes:
+      - ./OstadUI:/ostadui 
+      - /ostadui/node_modules
+      
 networks:
   mongo_network:
     driver: bridge
