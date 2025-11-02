@@ -84,12 +84,26 @@ This repository contains Kubernetes manifests to deploy a full-stack application
 ---
 
 ## Directory Structure
-├── 00-namespace.yaml        # Creates namespace: ornob
+## Project Structure
+
+```bash
+.
+├── 00-namespace.yaml        # Creates namespace: `ornob`
 ├── 01-config-secret.yaml    # ConfigMap and Secret for app configuration
 ├── 02-pvc.yaml              # PersistentVolumeClaim for MongoDB
-├── 03-deployments.yaml      # All 4 Deployments
-├── 04-services.yaml         # All 4 Services (ClusterIP)
-└── 05-ingress.yaml          # Ingress rules for chat.local and mongo.local
+├── 03-deployments.yaml      # All 4 Deployments:
+│                            #   - mongo
+│                            #   - mongo-express
+│                            #   - ostad-server
+│                            #   - ostad-ui
+├── 04-services.yaml         # All 4 Services (ClusterIP):
+│                            #   - mongo
+│                            #   - mongo-express
+│                            #   - ostad-server
+│                            #   - ostad-ui
+└── 05-ingress.yaml          # Ingress rules:
+                             #   - chat.local  → ostad-ui
+                             #   - mongo.local → mongo-express
 
 
 ---
