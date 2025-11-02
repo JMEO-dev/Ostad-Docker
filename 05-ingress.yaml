@@ -16,7 +16,7 @@ spec:
           service:
             name: ostad-ui
             port:
-              number: 5173
+              number: 80
   - host: mongo.local
     http:
       paths:
